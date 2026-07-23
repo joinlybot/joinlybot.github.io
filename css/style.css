@@ -747,14 +747,6 @@ footer{
    FAQ PAGE
 ===================================== */
 
-.page-header{
-
-    padding:170px 40px 90px;
-
-    text-align:center;
-
-}
-
 .page-header h1{
 
     font-size:56px;
@@ -1392,196 +1384,52 @@ code {
 }
 
 /* =====================================
-   EXTRA MOBILE OPTIMISATION
+   MOBILE NAVBAR CLEANUP
 ===================================== */
 
-@media (max-width:600px){
-
-    /* Navbar */
+@media(max-width:600px){
 
     .navbar{
-        height:70px;
         padding:0 18px;
     }
 
-    .logo{
-        font-size:18px;
-        gap:10px;
-    }
-
-    .logo img{
-        width:36px;
-        height:36px;
+    .nav-right{
+        display:none;
     }
 
     .nav-left{
-        gap:15px;
-    }
-
-    .nav-right{
-        gap:8px;
-    }
-
-    .invite-btn,
-    .premium-btn,
-    .primary-btn,
-    .secondary-btn{
-        padding:11px 16px;
-        font-size:14px;
-    }
-
-
-    /* Hero */
-
-    .hero{
-        padding:120px 20px 60px;
-        gap:40px;
-    }
-
-    .hero h1{
-        font-size:38px;
-    }
-
-    .hero p{
-        font-size:16px;
-    }
-
-    .hero-buttons{
-        flex-direction:column;
         width:100%;
-    }
-
-    .hero-buttons a{
-        width:100%;
-        text-align:center;
-    }
-
-
-    /* Dropdown */
-
-    .dropdown-menu{
-        width:280px;
-        left:-20px;
-    }
-
-        /* General containers */
-
-    .features,
-    .faq-section,
-    .backup-section,
-    .status-container,
-    .docs-container{
-        padding-left:18px;
-        padding-right:18px;
-    }
-
-
-    /* Headers */
-
-    .page-header{
-        padding:120px 20px 60px;
-    }
-
-    .page-header h1{
-        font-size:38px;
-    }
-
-    .page-header p{
-        font-size:16px;
-    }
-
-
-    /* Cards */
-
-    .feature-card,
-    .backup-card,
-    .faq-card,
-    .status-card,
-    .variable-card{
-        padding:22px;
-    }
-
-
-    /* Status */
-
-    .overall-status{
-        flex-direction:column;
-        text-align:center;
-    }
-
-
-    /* Variables */
-
-    .variable-grid{
-        grid-template-columns:1fr;
-    }
-
-    .variable-card h3{
-        font-size:20px;
-    }
-
-
-    /* Updates */
-
-    .update-header{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:8px;
-    }
-
-        /* Footer */
-
-    footer{
-        padding:40px 20px;
-    }
-
-    .footer-content{
-        text-align:center;
-    }
-
-    .footer-links{
-        flex-direction:column;
-        gap:12px;
-        text-align:center;
-    }
-
-
-    /* Code blocks */
-
-    code{
-        word-break:break-word;
-    }
-
-
-    /* Discord preview */
-
-    .discord-card{
-        padding:22px;
-    }
-
-    .card-header{
+        justify-content:space-between;
         gap:10px;
     }
 
-    .card-header img{
-        width:45px;
-        height:45px;
+    .dropdown{
+        margin-left:auto;
     }
 
-
-    /* Buttons */
-
-    .premium-btn,
-    .invite-btn{
-        white-space:nowrap;
+    .dropdown-btn{
+        font-size:15px;
     }
 
+    .dropdown-menu{
+        right:0;
+        left:auto;
+        width:min(280px, calc(100vw - 36px));
+        max-height:70vh;
+        overflow-y:auto;
+    }
 
-    /* Prevent overflow */
+    .logo img{
+        width:38px;
+        height:38px;
+    }
 
-    img{
-        max-width:100%;
-        height:auto;
+    .logo{
+        font-size:19px;
+    }
+
+    .navbar{
+        background:rgba(11,15,22,.85);
     }
 
 }
