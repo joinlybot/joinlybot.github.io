@@ -1398,13 +1398,13 @@ code {
     }
 
     .nav-left{
-        width:100%;
-        justify-content:space-between;
-        gap:10px;
-    }
+    width:auto;
+    justify-content:flex-start;
+    gap:24px;
+}
 
     .dropdown{
-        margin-left:auto;
+        margin-left:0;
     }
 
     .dropdown-btn{
@@ -1430,6 +1430,15 @@ code {
 
     .navbar{
         background:rgba(11,15,22,.85);
+    }
+
+}
+
+@media(max-width:600px){
+
+    .invite-btn,
+    .premium-btn{
+        display:none;
     }
 
 }
