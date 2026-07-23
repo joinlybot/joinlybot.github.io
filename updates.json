@@ -1,5 +1,11 @@
 [
     {
+        "title": "Test",
+        "category": "completed",
+        "description": "Test",
+        "date": "2026-07-23T07:06:41.598Z"
+    },
+    {
         "title": "Privacy & Legal Updates",
         "date": "July 23, 2026",
         "type": "Notice",
@@ -10,7 +16,6 @@
             "Please review the updated documents before continuing to use Joinly."
         ]
     },
-
     {
         "title": "Website Launch",
         "date": "July 23, 2026",
@@ -21,7 +26,6 @@
             "<strong>Documentation</strong><br><strong>Variables reference</strong><br><strong>Privacy Policy</strong><br><strong>Terms of Service</strong><br><strong>Support resources</strong>"
         ]
     },
-
     {
         "title": "Welcome & Goodbye Improvements",
         "date": "July 23, 2026",
@@ -32,7 +36,6 @@
             "<strong>Improved embed handling</strong><br>Better reliability when sending customized embeds.<br><br><strong>More customization options</strong><br>Additional controls for server administrators.<br><br><strong>Improved message delivery</strong><br>Reduced issues with failed welcome and goodbye messages."
         ]
     },
-
     {
         "title": "Configuration System Improvements",
         "date": "July 23, 2026",
@@ -43,7 +46,6 @@
             "<strong>Faster configuration loading</strong><br><strong>Improved setting validation</strong><br><strong>More reliable saving systems</strong><br><strong>Better error handling</strong>"
         ]
     },
-
     {
         "title": "Premium Variables Added",
         "date": "July 22, 2026",
@@ -54,7 +56,6 @@
             "<strong>User Information</strong><br>Additional user-related placeholders for personalized messages.<br><br><strong>Server Information</strong><br>More detailed server placeholders for advanced embeds.<br><br><strong>Advanced Formatting</strong><br>Additional formatting options for custom messages."
         ]
     },
-
     {
         "title": "Joinly Community Launch",
         "date": "July 20, 2026",
@@ -65,7 +66,6 @@
             "<strong>Support resources</strong><br><strong>Documentation</strong><br><strong>Feature announcements</strong><br><strong>Development updates</strong>"
         ]
     },
-
     {
         "title": "Joinly v1.0.0 Released",
         "date": "July 20, 2026",
