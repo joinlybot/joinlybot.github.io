@@ -114,6 +114,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function formatStatus(status) {
 
-    return status.charAt(0).toUpperCase() + status.slice(1);
+    return status
+        .toLowerCase()
+        .replace(/^\w/, c => c.toUpperCase());
 
 }
