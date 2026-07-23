@@ -214,6 +214,37 @@ function calculateOverall(services) {
 
 
 
+    const issueTypes =
+    [
+        offline.length > 0,
+        degraded.length > 0,
+        maintenance.length > 0
+    ]
+    .filter(Boolean)
+    .length;
+
+
+
+
+
+    if (issueTypes > 1) {
+
+        return {
+
+            title: "⚠️ Multiple Incidents",
+
+            state: "offline",
+
+            affected: affected.join(" • ")
+
+        };
+
+    }
+
+
+
+
+
     if (offline.length > 0) {
 
         return {
