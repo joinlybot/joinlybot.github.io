@@ -235,7 +235,7 @@ function calculateOverall(services) {
 
             state: "offline",
 
-            affected: affected.join(" • ")
+            affected: affected.join("<br>")
 
         };
 
