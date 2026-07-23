@@ -44,10 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="overall-status">
 
 
-                <div class="status-dot ${overallStatus.state}"></div>
-
-
-                <div>
+                <div class="overall-content">
 
 
                     <h2>${overallStatus.title}</h2>
@@ -123,10 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="overall-status">
 
 
-                <div class="status-dot offline"></div>
-
-
-                <div>
+                <div class="overall-content">
 
 
                     <h2>Status Unavailable</h2>
