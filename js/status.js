@@ -3,9 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const container = document.getElementById("status-grid");
 
-    const overall = document.querySelector(".overall-status");
-
-    const title = document.getElementById("status-title");
+    const overall = document.getElementById("overall-status");
 
 
     if (!container) return;
@@ -40,23 +38,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-            title.textContent =
-            overallStatus.title;
-
-
-
             if (overall) {
 
 
                 overall.innerHTML = `
 
-                    <div class="status-dot ${overallStatus.state}"></div>
+                    <div class="overall-status">
 
-                    <div>
+                        <div class="status-dot ${overallStatus.state}"></div>
 
-                        <h2>${overallStatus.title}</h2>
+                        <div>
 
-                        <p>${overallStatus.affected}</p>
+                            <h2>${overallStatus.title}</h2>
+
+                            <p>${overallStatus.affected}</p>
+
+                        </div>
 
                     </div>
 
@@ -118,31 +115,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-            title.textContent =
-            "Status unavailable";
+            if (overall) {
 
 
-
-            container.innerHTML = `
-
-
-            <div class="status-card">
+                overall.innerHTML = `
 
 
-                <h3>Unable to load status</h3>
+                <div class="overall-status">
 
 
-                <p>
-
-                There was an error loading the Joinly system status.
-
-                </p>
+                    <div class="status-dot offline"></div>
 
 
-            </div>
+                    <div>
 
 
-            `;
+                        <h2>Status Unavailable</h2>
+
+
+                        <p>
+
+                        There was an error loading the Joinly system status.
+
+                        </p>
+
+
+                    </div>
+
+
+                </div>
+
+
+                `;
+
+
+            }
+
 
 
         });
