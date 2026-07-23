@@ -35,7 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-            title.textContent = status.overall.title;
+            const overallStatus = calculateOverall(status.services);
+
+
+
+            title.textContent = overallStatus.title;
 
 
 
@@ -44,9 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 overall.innerHTML = `
 
-                    <div class="status-dot ${status.overall.state}"></div>
+                    <div class="status-dot ${overallStatus.state}"></div>
 
-                    <h2>${status.overall.title}</h2>
+                    <h2>${overallStatus.title}</h2>
 
                 `;
 
@@ -99,7 +103,6 @@ document.addEventListener("DOMContentLoaded", () => {
         })
 
 
-
         .catch(error => {
 
 
@@ -138,6 +141,77 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 });
+
+
+
+
+
+function calculateOverall(services) {
+
+
+    const states = services.map(service => service.state);
+
+
+
+    if (states.includes("offline")) {
+
+
+        return {
+
+            title: "Some Systems Offline",
+
+            state: "offline"
+
+        };
+
+
+    }
+
+
+
+    if (states.includes("degraded")) {
+
+
+        return {
+
+            title: "Some Systems Degraded",
+
+            state: "degraded"
+
+        };
+
+
+    }
+
+
+
+    if (states.includes("maintenance")) {
+
+
+        return {
+
+            title: "Maintenance In Progress",
+
+            state: "maintenance"
+
+        };
+
+
+    }
+
+
+
+    return {
+
+        title: "All Systems Operational",
+
+        state: "operational"
+
+    };
+
+
+}
+
 
 
 
