@@ -1,8 +1,9 @@
 {
-  "overall": {
+ "overall": {
     "title": "All Systems Operational",
     "description": "Everything is running normally.",
-    "status": "online"
+    "status": "Operational"
+}
   },
   "services": [
     {
