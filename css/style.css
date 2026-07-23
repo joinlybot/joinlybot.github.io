@@ -976,7 +976,10 @@ STATUS PAGE
 
 
 
-/* Overall Status Box */
+/* ==============================
+   OVERALL STATUS
+============================== */
+
 
 .overall-status{
 
@@ -984,7 +987,7 @@ STATUS PAGE
 
     align-items:center;
 
-    justify-content:center;
+    justify-content:flex-start;
 
     gap:15px;
 
@@ -1002,13 +1005,40 @@ STATUS PAGE
 
 
 
-/* Status Dots */
+
+
+.overall-status h2{
+
+    margin:0;
+
+}
+
+
+
+
+
+.overall-status p{
+
+    color:var(--muted);
+
+    margin-top:5px;
+
+}
+
+
+
+
+
+/* ==============================
+   STATUS DOTS
+============================== */
+
 
 .status-dot{
 
-    width:16px;
+    width:12px;
 
-    height:16px;
+    height:12px;
 
     border-radius:50%;
 
@@ -1020,15 +1050,33 @@ STATUS PAGE
 
 
 
+
+
+/* Bigger dot for overall status */
+
+.overall-status .status-dot{
+
+    width:14px;
+
+    height:14px;
+
+}
+
+
+
+
+
 /* Operational */
 
 .status-dot.operational{
 
     background:#2ecc71;
 
-    box-shadow:0 0 20px #2ecc71;
+    box-shadow:0 0 14px #2ecc71;
 
 }
+
+
 
 
 
@@ -1038,9 +1086,11 @@ STATUS PAGE
 
     background:#3498db;
 
-    box-shadow:0 0 20px #3498db;
+    box-shadow:0 0 14px #3498db;
 
 }
+
+
 
 
 
@@ -1050,9 +1100,11 @@ STATUS PAGE
 
     background:#f39c12;
 
-    box-shadow:0 0 20px #f39c12;
+    box-shadow:0 0 14px #f39c12;
 
 }
+
+
 
 
 
@@ -1062,7 +1114,7 @@ STATUS PAGE
 
     background:#7f8c8d;
 
-    box-shadow:0 0 20px #7f8c8d;
+    box-shadow:0 0 14px #7f8c8d;
 
 }
 
@@ -1106,7 +1158,9 @@ STATUS PAGE
 
 
 
-/* Service Grid */
+/* ==============================
+   SERVICE GRID
+============================== */
 
 
 .status-grid{
@@ -1157,9 +1211,11 @@ STATUS PAGE
 
     display:flex;
 
-    justify-content:space-between;
+    justify-content:flex-start;
 
     align-items:center;
+
+    gap:12px;
 
     margin-bottom:16px;
 
@@ -1181,6 +1237,11 @@ STATUS PAGE
 
 
 
+
+
+/* ==============================
+   MOBILE
+============================== */
 
 
 @media(max-width:900px){
