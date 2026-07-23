@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <span>${service.name}</span>
 
 
-                    <div class="${service.state}"></div>
+                    <div class="status-dot ${service.state}"></div>
 
 
                 </div>
@@ -156,6 +156,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+
 function calculateOverall(services) {
 
 
@@ -177,6 +179,7 @@ function calculateOverall(services) {
     services
         .filter(service => service.state === "maintenance")
         .map(service => service.name);
+
 
 
 
@@ -284,6 +287,8 @@ function calculateOverall(services) {
 
 
 }
+
+
 
 
 
