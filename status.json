@@ -7,8 +7,8 @@
         },
         {
             "name": "Dashboard",
-            "status": "Offline",
-            "state": "offline"
+            "status": "Operational",
+            "state": "operational"
         },
         {
             "name": "Commands",
