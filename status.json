@@ -1,0 +1,39 @@
+{
+  "overall": {
+    "title": "All Systems Operational",
+    "description": "Everything is running normally.",
+    "status": "online"
+  },
+  "services": [
+    {
+      "name": "Bot API",
+      "status": "Operational",
+      "state": "online"
+    },
+    {
+      "name": "Dashboard",
+      "status": "Operational",
+      "state": "online"
+    },
+    {
+      "name": "Commands",
+      "status": "Operational",
+      "state": "online"
+    },
+    {
+      "name": "Database",
+      "status": "Operational",
+      "state": "online"
+    },
+    {
+      "name": "Website",
+      "status": "Operational",
+      "state": "online"
+    },
+    {
+      "name": "Discord Gateway",
+      "status": "Operational",
+      "state": "online"
+    }
+  ]
+}
