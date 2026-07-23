@@ -231,7 +231,7 @@ function calculateOverall(services) {
 
         return {
 
-            title: "⚠️ Multiple Incidents",
+            title: "🚨 Multiple Incidents",
 
             state: "offline",
 
@@ -249,7 +249,7 @@ function calculateOverall(services) {
 
         return {
 
-            title: "Service Outage",
+            title: "🔥 Service Outage",
 
             state: "offline",
 
@@ -267,7 +267,7 @@ function calculateOverall(services) {
 
         return {
 
-            title: "Performance Degradation",
+            title: "⚠️ Performance Degradation",
 
             state: "degraded",
 
@@ -285,7 +285,7 @@ function calculateOverall(services) {
 
         return {
 
-            title: "Maintenance In Progress",
+            title: "🔧 Maintenance In Progress",
 
             state: "maintenance",
 
