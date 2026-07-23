@@ -1004,17 +1004,24 @@ STATUS PAGE
 }
 
 
+.overall-status > div:last-child{
 
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
 
 
 .overall-status h2{
 
     margin:0;
 
+    line-height:1.2;
+
 }
-
-
-
 
 
 .overall-status p{
@@ -1022,6 +1029,8 @@ STATUS PAGE
     color:var(--muted);
 
     margin-top:5px;
+
+    line-height:1.4;
 
 }
 
