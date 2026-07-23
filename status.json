@@ -2,8 +2,8 @@
     "services": [
         {
             "name": "Bot API",
-            "status": "Offline",
-            "state": "offline"
+            "status": "Operational",
+            "state": "operational"
         },
         {
             "name": "Dashboard",
