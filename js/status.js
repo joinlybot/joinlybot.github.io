@@ -1,15 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const grid = document.getElementById("status-grid");
+    const container = document.getElementById("status-grid");
+
+    const overallContainer = document.getElementById("overall-status");
 
     const title = document.getElementById("status-title");
 
-    const overallTitle = document.getElementById("overall-title");
 
-    const overallDot = document.getElementById("overall-dot");
-
-
-    if (!grid) return;
+    if (!container) return;
 
 
     fetch("status.json")
@@ -19,12 +17,22 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(status => {
 
 
+
             title.textContent = status.overall.title;
 
-            overallTitle.textContent = status.overall.title;
 
 
-            overallDot.className = "status-dot " + status.overall.status;
+            overallContainer.innerHTML = `
+
+            <div class="overall-status">
+
+                <div class="status-dot ${status.overall.status}"></div>
+
+                <h2>${status.overall.title}</h2>
+
+            </div>
+
+            `;
 
 
 
@@ -50,17 +58,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 <p>${formatStatus(service.status)}</p>
 
+
                 `;
 
 
-                grid.appendChild(card);
+                container.appendChild(card);
 
 
             });
 
 
-        })
 
+        })
 
         .catch(error => {
 
@@ -68,20 +77,29 @@ document.addEventListener("DOMContentLoaded", () => {
             console.error("Failed to load status:", error);
 
 
+
             title.textContent = "Status unavailable";
 
-            overallTitle.textContent = "Unable to load status";
 
 
-            grid.innerHTML = `
+            container.innerHTML = `
+
 
             <div class="status-card">
 
-                <h3>Status Error</h3>
 
-                <p>Unable to load system status.</p>
+                <h3>Unable to load status</h3>
+
+
+                <p>
+
+                There was an error loading the Joinly system status.
+
+                </p>
+
 
             </div>
+
 
             `;
 
@@ -96,10 +114,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function formatStatus(status) {
 
-    return status
-
-        .replace("-", " ")
-
-        .replace(/\b\w/g, char => char.toUpperCase());
+    return status.charAt(0).toUpperCase() + status.slice(1);
 
 }
