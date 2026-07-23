@@ -2,8 +2,8 @@
     "services": [
         {
             "name": "Bot API",
-            "status": "Degraded",
-            "state": "degraded"
+            "status": "Operational",
+            "state": "operational"
         },
         {
             "name": "Dashboard",
