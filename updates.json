@@ -4,6 +4,20 @@
         "date": "July 23, 2026",
         "type": "Notice",
         "content": [
+            "<strong>Updated Joinly&#39;s Terms of Service and Privacy Policy.</strong>",
+            "These updates improve transparency regarding:",
+            "<strong>Data collection practices</strong>,",
+            "<strong>Information storage</strong>,",
+            "<strong>User responsibilities</strong>,",
+            "and <strong>Service availability</strong>.",
+            "Please review the updated documents before continuing to use Joinly."
+        ]
+    },
+    {
+        "title": "Privacy & Legal Update",
+        "date": "July 23, 2026",
+        "type": "Notice",
+        "content": [
             "<strong>Updated Joinly's Terms of Service and Privacy Policy.</strong>",
             "These updates improve transparency regarding:",
             "<strong>Data collection practices</strong>,",
