@@ -1,34 +1,34 @@
 {
-  "services": [
-    {
-      "name": "Bot API",
-      "status": "Operational",
-      "state": "operational"
-    },
-    {
-      "name": "Dashboard",
-      "status": "Operational",
-      "state": "operational"
-    },
-    {
-      "name": "Commands",
-      "status": "Operational",
-      "state": "operational"
-    },
-    {
-      "name": "Database",
-      "status": "Operational",
-      "state": "operational"
-    },
-    {
-      "name": "Website",
-      "status": "Operational",
-      "state": "operational"
-    },
-    {
-      "name": "Discord Gateway",
-      "status": "Operational",
-      "state": "operational"
-    }
-  ]
+    "services": [
+        {
+            "name": "Bot API",
+            "status": "Operational",
+            "state": "operational"
+        },
+        {
+            "name": "Dashboard",
+            "status": "Operational",
+            "state": "operational"
+        },
+        {
+            "name": "Commands",
+            "status": "Operational",
+            "state": "operational"
+        },
+        {
+            "name": "Database",
+            "status": "Maintenance",
+            "state": "maintenance"
+        },
+        {
+            "name": "Website",
+            "status": "Operational",
+            "state": "operational"
+        },
+        {
+            "name": "Discord Gateway",
+            "status": "Operational",
+            "state": "operational"
+        }
+    ]
 }
