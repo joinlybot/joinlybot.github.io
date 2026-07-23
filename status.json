@@ -22,8 +22,8 @@
         },
         {
             "name": "Website",
-            "status": "Maintenance",
-            "state": "maintenance"
+            "status": "Operational",
+            "state": "operational"
         },
         {
             "name": "Discord Gateway",
