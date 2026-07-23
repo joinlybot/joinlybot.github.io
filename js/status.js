@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const overall = document.getElementById("overall-status");
 
 
-    if (!container) return;
+    if (!container || !overall) return;
 
 
 
@@ -133,9 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                     <p>
-
                     There was an error loading the Joinly system status.
-
                     </p>
 
 
@@ -183,19 +181,15 @@ function calculateOverall(services) {
 
 
 
+    let affected = [];
+
+
 
     if (offline.length > 0) {
 
-        return {
-
-            title: "Some Systems Offline",
-
-            state: "offline",
-
-            affected:
-            `Affected systems: ${offline.join(", ")}`
-
-        };
+        affected.push(
+            `Offline: ${offline.join(", ")}`
+        );
 
     }
 
@@ -203,18 +197,59 @@ function calculateOverall(services) {
 
     if (degraded.length > 0) {
 
+        affected.push(
+            `Degraded: ${degraded.join(", ")}`
+        );
+
+    }
+
+
+
+    if (maintenance.length > 0) {
+
+        affected.push(
+            `Maintenance: ${maintenance.join(", ")}`
+        );
+
+    }
+
+
+
+
+
+    if (offline.length > 0) {
+
         return {
 
-            title: "Some Systems Degraded",
+            title: "Service Outage",
 
-            state: "degraded",
+            state: "offline",
 
-            affected:
-            `Affected systems: ${degraded.join(", ")}`
+            affected: affected.join(" • ")
 
         };
 
     }
+
+
+
+
+
+    if (degraded.length > 0) {
+
+        return {
+
+            title: "Performance Degradation",
+
+            state: "degraded",
+
+            affected: affected.join(" • ")
+
+        };
+
+    }
+
+
 
 
 
@@ -226,12 +261,13 @@ function calculateOverall(services) {
 
             state: "maintenance",
 
-            affected:
-            `Affected systems: ${maintenance.join(", ")}`
+            affected: affected.join(" • ")
 
         };
 
     }
+
+
 
 
 
