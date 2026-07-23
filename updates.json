@@ -1,5 +1,22 @@
 [
     {
+        "title": "Joinly Community Launch",
+        "date": "July 23, 2026",
+        "type": "Announcement",
+        "content": [
+            "<strong>The Joinly community has officially launched.</strong>",
+            "",
+            "<strong>Users can now access:</strong>",
+            "",
+            "Support resources",
+            "Documentation",
+            "Feature announcements",
+            "Development updates",
+            "",
+            "<strong>Join the community:</strong> <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://discord.gg/PTrU8DQacj\">Joinly Support</a>"
+        ]
+    },
+    {
         "title": "Privacy & Legal Updates",
         "date": "July 23, 2026",
         "type": "Legal",
