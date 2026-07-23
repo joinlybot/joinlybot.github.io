@@ -987,9 +987,9 @@ STATUS PAGE
 
     align-items:center;
 
-    justify-content:flex-start;
+    justify-content:center;
 
-    gap:15px;
+    text-align:center;
 
     background:var(--card);
 
@@ -999,18 +999,20 @@ STATUS PAGE
 
     border:1px solid var(--border);
 
-    margin-bottom:45px;
+    margin:0 auto 45px;
+
+    max-width:900px;
 
 }
 
 
-.overall-status > div:last-child{
+.overall-content{
 
     display:flex;
 
     flex-direction:column;
 
-    justify-content:center;
+    align-items:center;
 
 }
 
@@ -1054,20 +1056,6 @@ STATUS PAGE
     flex-shrink:0;
 
     animation:statusPulse 2s infinite;
-
-}
-
-
-
-
-
-/* Bigger dot for overall status */
-
-.overall-status .status-dot{
-
-    width:14px;
-
-    height:14px;
 
 }
 
@@ -1220,7 +1208,7 @@ STATUS PAGE
 
     display:flex;
 
-    justify-content:flex-start;
+    justify-content:space-between;
 
     align-items:center;
 
