@@ -1,9 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     const container = document.getElementById("updates-container");
-    const filter = document.getElementById("update-filter");
 
-    if (!container || !filter) return;
+    const dropdown = document.getElementById("update-filter");
+    const button = document.getElementById("update-filter-btn");
+    const menu = document.getElementById("update-filter-menu");
+
+    if (!container || !dropdown || !button || !menu) return;
 
     fetch("updates.json")
         .then(response => {
@@ -17,47 +20,56 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .then(updates => {
 
-            // Sort newest updates first
-            updates.sort((a, b) => {
-                return new Date(b.date) - new Date(a.date);
-            });
+            // Sort newest first
+            updates.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-            // Get every unique update type
+            // Get unique types
             const types = [...new Set(updates.map(update => update.type))].sort();
 
-            // Populate dropdown
+            // Build dropdown
             types.forEach(type => {
 
-                const option = document.createElement("option");
+                const link = document.createElement("a");
 
-                option.value = type;
-                option.textContent = type;
+                link.href = "#";
+                link.dataset.filter = type;
 
-                filter.appendChild(option);
+                link.innerHTML = `
+
+                    <div>
+
+                        <h4>${type}</h4>
+
+                        <p>Show only ${type} updates.</p>
+
+                    </div>
+
+                `;
+
+                menu.appendChild(link);
 
             });
 
-            function render(selectedType = "all") {
+            function render(filter = "all") {
 
                 container.innerHTML = "";
 
-                const filteredUpdates =
-                    selectedType === "all"
-                        ? updates
-                        : updates.filter(update => update.type === selectedType);
+                const filteredUpdates = filter === "all"
+                    ? updates
+                    : updates.filter(update => update.type === filter);
 
                 if (filteredUpdates.length === 0) {
 
                     container.innerHTML = `
+
                         <div class="variable-card update-card">
 
                             <h3>No updates found</h3>
 
-                            <p>
-                                There are currently no updates in this category.
-                            </p>
+                            <p>There are currently no updates in this category.</p>
 
                         </div>
+
                     `;
 
                     return;
@@ -105,10 +117,44 @@ document.addEventListener("DOMContentLoaded", () => {
             // Initial render
             render();
 
-            // Re-render when filter changes
-            filter.addEventListener("change", () => {
+            // Toggle dropdown
+            button.addEventListener("click", e => {
 
-                render(filter.value);
+                e.stopPropagation();
+
+                dropdown.classList.toggle("active");
+
+            });
+
+            // Handle dropdown clicks (works for dynamically-added items)
+            menu.addEventListener("click", e => {
+
+                const link = e.target.closest("a");
+
+                if (!link) return;
+
+                e.preventDefault();
+
+                const filter = link.dataset.filter;
+
+                // Update button text
+                button.childNodes[0].textContent =
+                    filter === "all" ? "All Updates\n\n" : `${filter}\n\n`;
+
+                render(filter);
+
+                dropdown.classList.remove("active");
+
+            });
+
+            // Close when clicking elsewhere
+            document.addEventListener("click", e => {
+
+                if (!dropdown.contains(e.target)) {
+
+                    dropdown.classList.remove("active");
+
+                }
 
             });
 
