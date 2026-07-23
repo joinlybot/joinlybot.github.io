@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+
     const container = document.getElementById("status-grid");
 
-    const overallContainer = document.getElementById("overall-status");
+    const overall = document.querySelector(".overall-status");
 
     const title = document.getElementById("status-title");
 
@@ -10,9 +11,25 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!container) return;
 
 
+
     fetch("status.json")
 
-        .then(response => response.json())
+
+        .then(response => {
+
+
+            if (!response.ok) {
+
+                throw new Error("Failed loading status.json");
+
+            }
+
+
+            return response.json();
+
+
+        })
+
 
         .then(status => {
 
@@ -22,21 +39,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-            overallContainer.innerHTML = `
+            if (overall) {
 
-            <div class="overall-status">
 
-               <div class="status-dot ${status.overall.status.toLowerCase()}"></div>
+                overall.innerHTML = `
 
-                <h2>${status.overall.title}</h2>
+                    <div class="status-dot ${status.overall.state}"></div>
 
-            </div>
+                    <h2>${status.overall.title}</h2>
 
-            `;
+                `;
+
+
+            }
 
 
 
             status.services.forEach(service => {
+
 
 
                 const card = document.createElement("div");
@@ -45,13 +65,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 card.className = "status-card";
 
 
+
                 card.innerHTML = `
+
 
                 <div class="status-title">
 
+
                     <span>${service.name}</span>
 
-                    <div class="${service.status.toLowerCase()}"></div>
+
+                    <div class="${service.state}"></div>
+
 
                 </div>
 
@@ -62,7 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 `;
 
 
+
                 container.appendChild(card);
+
 
 
             });
@@ -70,6 +97,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
         })
+
+
 
         .catch(error => {
 
@@ -112,10 +141,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
 function formatStatus(status) {
 
+
     return status
+
         .toLowerCase()
+
         .replace(/^\w/, c => c.toUpperCase());
+
 
 }
