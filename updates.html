@@ -173,15 +173,37 @@ Latest announcements, improvements, and changes.
 
 </div>
 
-<select id="update-filter" class="update-filter">
+<div class="dropdown" id="update-filter">
 
-<option value="all">All Updates</option>
+<button class="dropdown-btn" id="update-filter-btn">
 
-</select>
+All Updates
+
+<svg width="14" height="14" viewBox="0 0 24 24">
+<path fill="currentColor" d="M7 10l5 5 5-5z"/>
+</svg>
+
+</button>
+
+<div class="dropdown-menu" id="update-filter-menu">
+
+<a href="#" data-filter="all">
+
+<div>
+
+<h4>All Updates</h4>
+
+<p>Show every update.</p>
 
 </div>
 
-<!-- Updates are loaded from updates.json -->
+</a>
+
+</div>
+
+</div>
+
+</div>
 
 <div id="updates-container">
 </div>
@@ -237,9 +259,7 @@ Privacy Policy
 </a>
 
 <a href="https://discord.gg/PTrU8DQacj" target="_blank">
-
 Support
-
 </a>
 
 </div>
@@ -249,7 +269,6 @@ Support
 </footer>
 
 <script src="js/main.js"></script>
-
 <script src="js/updates.js"></script>
 
 </body>
