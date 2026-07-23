@@ -976,6 +976,8 @@ STATUS PAGE
 
 
 
+/* Overall Status Box */
+
 .overall-status{
 
     display:flex;
@@ -1000,20 +1002,111 @@ STATUS PAGE
 
 
 
+/* Status Dots */
+
 .status-dot{
 
     width:16px;
 
     height:16px;
 
-    background:#2ecc71;
-
     border-radius:50%;
+
+    flex-shrink:0;
+
+    animation:statusPulse 2s infinite;
+
+}
+
+
+
+/* Operational */
+
+.status-dot.operational{
+
+    background:#2ecc71;
 
     box-shadow:0 0 20px #2ecc71;
 
 }
 
+
+
+/* Maintenance */
+
+.status-dot.maintenance{
+
+    background:#3498db;
+
+    box-shadow:0 0 20px #3498db;
+
+}
+
+
+
+/* Degraded */
+
+.status-dot.degraded{
+
+    background:#f39c12;
+
+    box-shadow:0 0 20px #f39c12;
+
+}
+
+
+
+/* Offline */
+
+.status-dot.offline{
+
+    background:#7f8c8d;
+
+    box-shadow:0 0 20px #7f8c8d;
+
+}
+
+
+
+
+
+@keyframes statusPulse{
+
+
+    0%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+
+    50%{
+
+        transform:scale(1.35);
+
+        opacity:.55;
+
+    }
+
+
+    100%{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+
+}
+
+
+
+
+
+/* Service Grid */
 
 
 .status-grid{
@@ -1025,6 +1118,8 @@ STATUS PAGE
     gap:25px;
 
 }
+
+
 
 
 
@@ -1044,6 +1139,8 @@ STATUS PAGE
 
 
 
+
+
 .status-card:hover{
 
     background:var(--card-hover);
@@ -1051,6 +1148,8 @@ STATUS PAGE
     transform:translateY(-5px);
 
 }
+
+
 
 
 
@@ -1072,20 +1171,6 @@ STATUS PAGE
 
 
 
-.online{
-
-    width:12px;
-
-    height:12px;
-
-    background:#2ecc71;
-
-    border-radius:50%;
-
-    box-shadow:0 0 12px #2ecc71;
-
-}
-
 
 
 .status-card p{
@@ -1096,13 +1181,17 @@ STATUS PAGE
 
 
 
+
+
 @media(max-width:900px){
+
 
     .status-grid{
 
         grid-template-columns:1fr;
 
     }
+
 
 }
 /* ======================================
