@@ -1,10 +1,4 @@
 {
-  "overall": {
-    "title": "All Systems Operational",
-    "description": "Everything is running normally.",
-    "status": "Operational",
-    "state": "operational"
-  },
   "services": [
     {
       "name": "Bot API",
