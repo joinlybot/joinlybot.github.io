@@ -1805,31 +1805,63 @@ code{
         width:100%;
 
     }
-   .update-filter {
+.update-filter{
 
-    background: var(--card);
-    color: var(--text);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 10px 14px;
-    font-size: 14px;
-    font-family: inherit;
-    cursor: pointer;
-    transition: .2s;
+    background:#161d28;
+
+    color:white;
+
+    border:1px solid var(--border);
+
+    border-radius:14px;
+
+    padding:12px 16px;
+
+    font-size:15px;
+
+    font-family:inherit;
+
+    font-weight:500;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    min-width:180px;
+
+    appearance:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M7 10l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:right 14px center;
+    padding-right:42px;
 
 }
 
-.update-filter:hover {
+.update-filter:hover{
 
-    border-color: var(--primary);
+    background:#202a3b;
+
+    border-color:rgba(255,255,255,.12);
+
+}
+
+.update-filter:focus{
+
+    outline:none;
+
+    background:#202a3b;
+
+    border-color:var(--primary);
 
 }
 
-.update-filter:focus {
+.update-filter option{
 
-    outline: none;
-    border-color: var(--primary);
+    background:#161d28;
 
-}
+    color:white;
 
 }
