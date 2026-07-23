@@ -38,29 +38,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-            if (overall) {
+            overall.innerHTML = `
 
 
-                overall.innerHTML = `
-
-                    <div class="overall-status">
-
-                        <div class="status-dot ${overallStatus.state}"></div>
-
-                        <div>
-
-                            <h2>${overallStatus.title}</h2>
-
-                            <p>${overallStatus.affected}</p>
-
-                        </div>
-
-                    </div>
-
-                `;
+            <div class="overall-status">
 
 
-            }
+                <div class="status-dot ${overallStatus.state}"></div>
+
+
+                <div>
+
+
+                    <h2>${overallStatus.title}</h2>
+
+
+                    <p>${overallStatus.affected}</p>
+
+
+                </div>
+
+
+            </div>
+
+
+            `;
 
 
 
@@ -115,42 +117,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-            if (overall) {
+            overall.innerHTML = `
 
 
-                overall.innerHTML = `
+            <div class="overall-status">
 
 
-                <div class="overall-status">
+                <div class="status-dot offline"></div>
 
 
-                    <div class="status-dot offline"></div>
+                <div>
 
 
-                    <div>
+                    <h2>Status Unavailable</h2>
 
 
-                        <h2>Status Unavailable</h2>
+                    <p>
 
+                    There was an error loading the Joinly system status.
 
-                        <p>
-
-                        There was an error loading the Joinly system status.
-
-                        </p>
-
-
-                    </div>
+                    </p>
 
 
                 </div>
 
 
-                `;
+            </div>
 
 
-            }
-
+            `;
 
 
         });
@@ -191,7 +186,6 @@ function calculateOverall(services) {
 
     if (offline.length > 0) {
 
-
         return {
 
             title: "Some Systems Offline",
@@ -203,14 +197,11 @@ function calculateOverall(services) {
 
         };
 
-
     }
 
 
 
-
     if (degraded.length > 0) {
-
 
         return {
 
@@ -223,14 +214,11 @@ function calculateOverall(services) {
 
         };
 
-
     }
 
 
 
-
     if (maintenance.length > 0) {
-
 
         return {
 
@@ -243,9 +231,7 @@ function calculateOverall(services) {
 
         };
 
-
     }
-
 
 
 
