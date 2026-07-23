@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <div class="overall-status">
 
-                <div class="status-dot ${status.overall.status}"></div>
+               <div class="status-dot ${status.overall.status.toLowerCase()}"></div>
 
                 <h2>${status.overall.title}</h2>
 
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     <span>${service.name}</span>
 
-                    <div class="${service.status}"></div>
+                    <div class="${service.status.toLowerCase()}"></div>
 
                 </div>
 
