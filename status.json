@@ -27,8 +27,8 @@
         },
         {
             "name": "Discord Gateway",
-            "status": "Offline",
-            "state": "offline"
+            "status": "Degraded",
+            "state": "degraded"
         }
     ]
 }
