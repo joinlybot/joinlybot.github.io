@@ -188,7 +188,7 @@ function calculateOverall(services) {
     if (offline.length > 0) {
 
         affected.push(
-            `Offline: ${offline.join(", ")}`
+            `<strong>Offline:</strong> ${offline.join(", ")}`
         );
 
     }
@@ -198,7 +198,7 @@ function calculateOverall(services) {
     if (degraded.length > 0) {
 
         affected.push(
-            `Degraded: ${degraded.join(", ")}`
+            `<strong>Degraded:</strong> ${degraded.join(", ")}`
         );
 
     }
@@ -208,7 +208,7 @@ function calculateOverall(services) {
     if (maintenance.length > 0) {
 
         affected.push(
-            `Maintenance: ${maintenance.join(", ")}`
+            `<strong>Maintenance:</strong> ${maintenance.join(", ")}`
         );
 
     }
