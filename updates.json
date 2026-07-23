@@ -18,24 +18,6 @@
         ]
     },
     {
-        "title": "Updates Page Redsign",
-        "date": "July 23, 2026",
-        "type": "Update",
-        "content": [
-            "<strong>The <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://joinly.github.io/updates\">Updates</a> page has received a redesign</strong>.",
-            "",
-            "The page now includes a new filtering system, allowing users to quickly view specific categories of updates.",
-            "",
-            "<strong>New features include:</strong>",
-            "• Dynamic update categories based on update types",
-            "• Filter updates without refreshing the page",
-            "• Improved organisation for announcements, changes, and improvements",
-            "• A redesigned dropdown selector matching the Joinly website style",
-            "",
-            "<em>New update categories will automatically appear when added, making future updates easier to browse.</em>"
-        ]
-    },
-    {
         "title": "Status Page",
         "date": "July 23, 2026",
         "type": "Announcement",
