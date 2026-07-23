@@ -1,5 +1,18 @@
 [
     {
+        "title": "Website Launch",
+        "date": "July 23, 2026",
+        "type": "Website",
+        "content": [
+            "<strong>The official Joinly website is now available.</strong>",
+            "The new website provides easier access to:",
+            "<strong>Documentation</strong>",
+            "<strong>Variables reference</strong>",
+            "<strong>Privacy Policy</strong>",
+            "<strong>Terms of Service resources</strong>"
+        ]
+    },
+    {
         "title": "ToS & Privacy Policy Update",
         "date": "July 23, 2026",
         "type": "Notice",
