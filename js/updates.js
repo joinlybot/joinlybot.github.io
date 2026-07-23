@@ -10,43 +10,48 @@ document.addEventListener("DOMContentLoaded", () => {
     const menu = document.querySelector(".updates-filter-menu");
 
 
+    if (!container) return;
+
+
     let updates = [];
 
     let currentFilter = "all";
 
 
 
-    if (!container || !dropdown || !button || !menu) return;
-
-
-
     /*
-        Open / close dropdown
+        Dropdown handling
     */
 
-    button.addEventListener("click", (event) => {
-
-        event.stopPropagation();
-
-        dropdown.classList.toggle("active");
-
-    });
+    if(dropdown && button && menu){
 
 
+        button.addEventListener("click", (event) => {
 
-    document.addEventListener("click", () => {
+            event.stopPropagation();
 
-        dropdown.classList.remove("active");
+            dropdown.classList.toggle("active");
 
-    });
+        });
 
 
 
-    dropdown.addEventListener("click", (event) => {
+        dropdown.addEventListener("click", (event)=>{
 
-        event.stopPropagation();
+            event.stopPropagation();
 
-    });
+        });
+
+
+
+        document.addEventListener("click", ()=>{
+
+            dropdown.classList.remove("active");
+
+        });
+
+
+    }
 
 
 
@@ -58,57 +63,59 @@ document.addEventListener("DOMContentLoaded", () => {
 
     fetch("updates.json")
 
+        .then(response => response.json())
 
-    .then(response => {
-
-
-        if (!response.ok){
-
-            throw new Error("Failed to load updates.json");
-
-        }
+        .then(data => {
 
 
-        return response.json();
-
-
-    })
-
-
-    .then(data => {
-
-
-        updates = data;
-
-
-        createFilterOptions();
-
-
-        renderUpdates();
+            updates = data;
 
 
 
-    })
+            // Newest updates first
+
+            updates.sort((a, b) => {
+
+                return new Date(b.date) - new Date(a.date);
+
+            });
 
 
-    .catch(error => {
+
+            createFilters();
 
 
-        console.error(error);
+            renderUpdates();
 
 
-        container.innerHTML = `
 
-        <div class="update-card">
-
-        <p>Unable to load updates.</p>
-
-        </div>
-
-        `;
+        })
 
 
-    });
+
+        .catch(error => {
+
+
+            console.error("Failed to load updates:", error);
+
+
+
+            container.innerHTML = `
+
+            <div class="variable-card update-card">
+
+                <h3>Unable to load updates</h3>
+
+                <p>
+                There was an error loading the Joinly development log.
+                </p>
+
+            </div>
+
+            `;
+
+
+        });
 
 
 
@@ -116,10 +123,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /*
-        Create dropdown options dynamically
+        Create dropdown categories
     */
 
-    function createFilterOptions(){
+    function createFilters(){
+
+
+        if(!menu) return;
+
 
 
         const types = [
@@ -133,10 +144,11 @@ document.addEventListener("DOMContentLoaded", () => {
         types.forEach(type => {
 
 
+
             const option = document.createElement("a");
 
-
             option.dataset.filter = type;
+
 
 
             option.innerHTML = `
@@ -153,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-            option.addEventListener("click", () => {
+            option.addEventListener("click", ()=>{
 
 
                 currentFilter = type;
@@ -188,24 +200,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-        allOption.addEventListener("click", () => {
+        if(allOption){
 
 
-            currentFilter = "all";
+            allOption.addEventListener("click", ()=>{
 
 
-            updateButton("All Updates");
+                currentFilter = "all";
 
 
-            dropdown.classList.remove("active");
+                updateButton("All Updates");
 
 
-            renderUpdates();
+                dropdown.classList.remove("active");
+
+
+                renderUpdates();
 
 
 
-        });
+            });
 
+
+        }
 
 
     }
@@ -216,10 +233,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /*
-        Change dropdown button text
+        Update dropdown button text
     */
 
     function updateButton(text){
+
+
+        if(!button) return;
+
 
 
         button.innerHTML = `
@@ -280,7 +301,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const card = document.createElement("div");
 
 
-            card.className = "update-card";
+            // KEEP ORIGINAL CSS CLASSES
+
+            card.className = "variable-card update-card";
 
 
 
@@ -296,25 +319,29 @@ document.addEventListener("DOMContentLoaded", () => {
                     <h3>${update.title}</h3>
 
 
-                    <span>
-
-                    ${update.date} • ${update.type}
-
-                    </span>
+                    <span>${update.date}</span>
 
 
                 </div>
+
+
+
+                <span class="badge">
+
+                    ${update.type}
+
+                </span>
 
 
             </div>
 
 
 
-            ${update.content.map(line => `
-
-                <p>${line}</p>
-
-            `).join("")}
+            ${
+                Array.isArray(update.content)
+                ? update.content.join("<br>")
+                : update.content
+            }
 
 
 
@@ -331,14 +358,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
         if(filteredUpdates.length === 0){
 
 
             container.innerHTML = `
 
-            <div class="update-card">
+            <div class="variable-card update-card">
 
-                <p>No updates found for this category.</p>
+                <h3>No updates found</h3>
+
+                <p>
+                There are no updates in this category.
+                </p>
 
             </div>
 
