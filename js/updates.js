@@ -46,7 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
 
 
-                ${update.content}
+                ${Array.isArray(update.content)
+                    ? update.content.join("<br>")
+                    : update.content}
 
 
                 `;
