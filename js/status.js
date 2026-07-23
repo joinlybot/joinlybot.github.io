@@ -35,11 +35,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-            const overallStatus = calculateOverall(status.services);
+            const overallStatus =
+            calculateOverall(status.services);
 
 
 
-            title.textContent = overallStatus.title;
+            title.textContent =
+            overallStatus.title;
 
 
 
@@ -50,7 +52,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     <div class="status-dot ${overallStatus.state}"></div>
 
-                    <h2>${overallStatus.title}</h2>
+                    <div>
+
+                        <h2>${overallStatus.title}</h2>
+
+                        <p>${overallStatus.affected}</p>
+
+                    </div>
 
                 `;
 
@@ -110,7 +118,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-            title.textContent = "Status unavailable";
+            title.textContent =
+            "Status unavailable";
 
 
 
@@ -149,18 +158,40 @@ document.addEventListener("DOMContentLoaded", () => {
 function calculateOverall(services) {
 
 
-    const states = services.map(service => service.state);
+    const offline =
+    services
+        .filter(service => service.state === "offline")
+        .map(service => service.name);
 
 
 
-    if (states.includes("offline")) {
+    const degraded =
+    services
+        .filter(service => service.state === "degraded")
+        .map(service => service.name);
+
+
+
+    const maintenance =
+    services
+        .filter(service => service.state === "maintenance")
+        .map(service => service.name);
+
+
+
+
+
+    if (offline.length > 0) {
 
 
         return {
 
             title: "Some Systems Offline",
 
-            state: "offline"
+            state: "offline",
+
+            affected:
+            `Affected systems: ${offline.join(", ")}`
 
         };
 
@@ -169,14 +200,18 @@ function calculateOverall(services) {
 
 
 
-    if (states.includes("degraded")) {
+
+    if (degraded.length > 0) {
 
 
         return {
 
             title: "Some Systems Degraded",
 
-            state: "degraded"
+            state: "degraded",
+
+            affected:
+            `Affected systems: ${degraded.join(", ")}`
 
         };
 
@@ -185,19 +220,24 @@ function calculateOverall(services) {
 
 
 
-    if (states.includes("maintenance")) {
+
+    if (maintenance.length > 0) {
 
 
         return {
 
             title: "Maintenance In Progress",
 
-            state: "maintenance"
+            state: "maintenance",
+
+            affected:
+            `Affected systems: ${maintenance.join(", ")}`
 
         };
 
 
     }
+
 
 
 
@@ -205,7 +245,10 @@ function calculateOverall(services) {
 
         title: "All Systems Operational",
 
-        state: "operational"
+        state: "operational",
+
+        affected:
+        "Everything is running normally."
 
     };
 
