@@ -2,13 +2,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const container = document.getElementById("updates-container");
 
-    const dropdown = document.getElementById("update-filter");
-    const button = document.getElementById("update-filter-btn");
-    const menu = document.getElementById("update-filter-menu");
+    const filterDropdown = document.getElementById("update-filter");
+    const filterButton = document.getElementById("update-filter-btn");
+    const filterMenu = document.getElementById("update-filter-menu");
 
-    if (!container || !dropdown || !button || !menu) return;
+    if (!container || !filterDropdown || !filterButton || !filterMenu) return;
+
 
     fetch("updates.json")
+
         .then(response => {
 
             if (!response.ok) {
@@ -18,47 +20,73 @@ document.addEventListener("DOMContentLoaded", () => {
             return response.json();
 
         })
+
+
         .then(updates => {
 
-            // Sort newest first
-            updates.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-            // Get unique types
-            const types = [...new Set(updates.map(update => update.type))].sort();
+            updates.sort((a, b) => {
 
-            // Build dropdown
+                return new Date(b.date) - new Date(a.date);
+
+            });
+
+
+
+            const types = [
+                ...new Set(updates.map(update => update.type))
+            ].sort();
+
+
+
             types.forEach(type => {
 
-                const link = document.createElement("a");
 
-                link.href = "#";
-                link.dataset.filter = type;
+                const option = document.createElement("a");
 
-                link.innerHTML = `
+                option.href = "#";
+
+                option.dataset.filter = type;
+
+
+                option.innerHTML = `
 
                     <div>
 
                         <h4>${type}</h4>
 
-                        <p>Show only ${type} updates.</p>
+                        <p>Show ${type.toLowerCase()} updates.</p>
 
                     </div>
 
                 `;
 
-                menu.appendChild(link);
+
+                filterMenu.appendChild(option);
+
 
             });
 
-            function render(filter = "all") {
+
+
+            function render(selectedType = "all") {
+
 
                 container.innerHTML = "";
 
-                const filteredUpdates = filter === "all"
+
+                const filteredUpdates =
+
+                    selectedType === "all"
+
                     ? updates
-                    : updates.filter(update => update.type === filter);
+
+                    : updates.filter(update => update.type === selectedType);
+
+
 
                 if (filteredUpdates.length === 0) {
+
 
                     container.innerHTML = `
 
@@ -66,25 +94,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
                             <h3>No updates found</h3>
 
-                            <p>There are currently no updates in this category.</p>
+                            <p>
+                                There are currently no updates in this category.
+                            </p>
 
                         </div>
 
                     `;
 
+
                     return;
 
                 }
 
+
+
+
                 filteredUpdates.forEach(update => {
+
 
                     const card = document.createElement("div");
 
+
                     card.className = "variable-card update-card";
+
+
 
                     card.innerHTML = `
 
+
                         <div class="update-header">
+
 
                             <div>
 
@@ -94,74 +134,120 @@ document.addEventListener("DOMContentLoaded", () => {
 
                             </div>
 
+
                             <span class="badge">
 
                                 ${update.type}
 
                             </span>
 
+
                         </div>
 
-                        ${Array.isArray(update.content)
+
+
+                        ${
+                            Array.isArray(update.content)
+
                             ? update.content.join("<br>")
-                            : update.content}
+
+                            : update.content
+
+                        }
+
 
                     `;
 
+
+
                     container.appendChild(card);
+
 
                 });
 
+
             }
 
-            // Initial render
-            render();
 
-            // Toggle dropdown
-            button.addEventListener("click", e => {
 
-                e.stopPropagation();
 
-                dropdown.classList.toggle("active");
+            filterMenu.addEventListener("click", event => {
+
+
+                const item = event.target.closest("a");
+
+
+                if (!item) return;
+
+
+                event.preventDefault();
+
+
+
+                const value = item.dataset.filter;
+
+
+                filterButton.childNodes[0].textContent =
+                    value === "all"
+                    ? "All Updates"
+                    : value;
+
+
+
+                filterDropdown.classList.remove("active");
+
+
+                render(value);
+
 
             });
 
-            // Handle dropdown clicks (works for dynamically-added items)
-            menu.addEventListener("click", e => {
 
-                const link = e.target.closest("a");
 
-                if (!link) return;
 
-                e.preventDefault();
 
-                const filter = link.dataset.filter;
+            filterButton.addEventListener("click", () => {
 
-                // Update button text
-                button.childNodes[0].textContent =
-                    filter === "all" ? "All Updates\n\n" : `${filter}\n\n`;
 
-                render(filter);
+                filterDropdown.classList.toggle("active");
 
-                dropdown.classList.remove("active");
 
             });
 
-            // Close when clicking elsewhere
-            document.addEventListener("click", e => {
 
-                if (!dropdown.contains(e.target)) {
 
-                    dropdown.classList.remove("active");
+
+
+            document.addEventListener("click", event => {
+
+
+                if (!filterDropdown.contains(event.target)) {
+
+
+                    filterDropdown.classList.remove("active");
+
 
                 }
 
+
             });
 
+
+
+
+            render();
+
+
         })
+
+
+
         .catch(error => {
 
+
             console.error("Failed to load updates:", error);
+
+
 
             container.innerHTML = `
 
@@ -177,6 +263,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             `;
 
+
         });
+
 
 });
