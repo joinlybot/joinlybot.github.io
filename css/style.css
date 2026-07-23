@@ -34,7 +34,9 @@
 }
 
 html{
+
     scroll-behavior:smooth;
+
 }
 
 body{
@@ -64,7 +66,6 @@ body{
 ::-webkit-scrollbar-thumb{
 
     background:#2d3748;
-
     border-radius:20px;
 
 }
@@ -85,7 +86,6 @@ body{
     position:fixed;
 
     top:0;
-
     left:0;
 
     width:100%;
@@ -714,6 +714,7 @@ footer{
    BACKUP PAGE
 ===================================== */
 
+
 .page-header{
 
     padding:170px 40px 90px;
@@ -818,6 +819,7 @@ footer{
 /* =====================================
    FAQ PAGE
 ===================================== */
+
 
 .faq-section{
 
@@ -924,8 +926,6 @@ footer{
     transform:rotate(45deg);
 
 }
-
-
 /* ===================================
 STATUS PAGE
 =================================== */
@@ -964,6 +964,21 @@ STATUS PAGE
 }
 
 
+.status-dot{
+
+    width:16px;
+
+    height:16px;
+
+    background:#2ecc71;
+
+    border-radius:50%;
+
+    box-shadow:0 0 20px #2ecc71;
+
+}
+
+
 .status-grid{
 
     display:grid;
@@ -973,6 +988,82 @@ STATUS PAGE
     gap:25px;
 
 }
+
+
+.status-card{
+
+    background:var(--card);
+
+    padding:28px;
+
+    border-radius:18px;
+
+    border:1px solid var(--border);
+
+    transition:.25s;
+
+}
+
+
+.status-card:hover{
+
+    background:var(--card-hover);
+
+    transform:translateY(-5px);
+
+}
+
+
+.status-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:16px;
+
+    font-weight:600;
+
+    font-size:18px;
+
+}
+
+
+.online{
+
+    width:12px;
+
+    height:12px;
+
+    background:#2ecc71;
+
+    border-radius:50%;
+
+    box-shadow:0 0 12px #2ecc71;
+
+}
+
+
+.status-card p{
+
+    color:var(--muted);
+
+}
+
+
+@media(max-width:900px){
+
+    .status-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
 /* ======================================
 VARIABLES PAGE
 ====================================== */
@@ -1185,10 +1276,6 @@ VARIABLE SECTIONS
 }
 
 
-/* ==============================
-NAV BUTTONS
-============================== */
-
 .nav-right{
 
     display:flex;
@@ -1270,6 +1357,122 @@ code{
 }
 
 
+.card-header > div{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+.card-header strong{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    white-space:nowrap;
+
+}
+
+
+.app-badge{
+
+    background:#5865f2;
+
+    color:white;
+
+    font-size:11px;
+
+    padding:2px 5px;
+
+    border-radius:4px;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    line-height:1;
+
+    white-space:nowrap;
+
+}
+
+
+.discord-mention{
+
+    color:#5865f2;
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+}
+
+
+.embed-preview{
+
+    background:#242429;
+
+    border-left:4px solid #00a884;
+
+    padding:16px;
+
+    border-radius:6px;
+
+}
+
+
+.embed-preview h4{
+
+    margin:0 0 12px;
+
+    font-size:16px;
+
+}
+
+
+.embed-preview p{
+
+    color:#dbdee1;
+
+    margin:10px 0;
+
+}
+
+
+.embed-preview strong{
+
+    color:white;
+
+}
+
+
+.embed-preview .channels span{
+
+    background:#313338;
+
+    color:#5865f2;
+
+    padding:2px 5px;
+
+    border-radius:3px;
+
+}
+
+
+.embed-preview small{
+
+    color:#b5bac1;
+
+    font-weight:600;
+
+}
+
+
 .update-card{
 
     margin-bottom:40px;
@@ -1314,7 +1517,7 @@ code{
 
 
 /* =====================================
-   MOBILE NAVBAR CLEANUP + DROPDOWN FIX
+   MOBILE NAVBAR CLEANUP
 ===================================== */
 
 @media(max-width:600px){
@@ -1366,8 +1569,6 @@ code{
 
     .dropdown{
 
-        position:relative;
-
         margin-left:0;
 
     }
@@ -1380,19 +1581,13 @@ code{
     }
 
 
-    /* FIXED DROPDOWN POSITION */
-
     .dropdown-menu{
 
-        position:absolute;
+        right:0;
 
-        top:55px;
+        left:auto;
 
-        left:0;
-
-        transform:none;
-
-        width:min(320px, calc(100vw - 28px));
+        width:min(280px, calc(100vw - 36px));
 
         max-height:70vh;
 
@@ -1420,6 +1615,174 @@ code{
     .navbar{
 
         background:rgba(11,15,22,.85);
+
+    }
+
+}
+
+/* =====================================
+   MOBILE NAVBAR CLEANUP
+===================================== */
+
+@media(max-width:600px){
+
+    .navbar{
+
+        padding:0 14px;
+
+    }
+
+
+    .nav-left{
+
+        width:auto;
+
+        justify-content:flex-start;
+
+        gap:14px;
+
+    }
+
+
+    .nav-right{
+
+        display:flex;
+
+        align-items:center;
+
+        gap:8px;
+
+    }
+
+
+    .invite-btn{
+
+        display:none;
+
+    }
+
+
+    .premium-btn{
+
+        padding:8px 12px;
+
+        font-size:13px;
+
+    }
+
+
+    .dropdown{
+
+        margin-left:0;
+
+    }
+
+
+    .dropdown-btn{
+
+        font-size:15px;
+
+    }
+
+
+    /*
+        Dropdown mobile fix
+        Keeps menu fully visible
+    */
+
+    .dropdown-menu{
+
+        position:fixed;
+
+        top:72px;
+
+        left:14px;
+
+        right:14px;
+
+        width:auto;
+
+        max-width:none;
+
+        margin:0;
+
+        max-height:70vh;
+
+        overflow-y:auto;
+
+    }
+
+
+
+    .logo img{
+
+        width:36px;
+
+        height:36px;
+
+    }
+
+
+    .logo{
+
+        font-size:18px;
+
+    }
+
+
+    .navbar{
+
+        background:rgba(11,15,22,.85);
+
+    }
+
+
+
+    /*
+        Footer mobile fix
+        Makes links vertical
+    */
+
+    footer{
+
+        padding:45px 25px;
+
+    }
+
+
+    .footer-content{
+
+        flex-direction:column;
+
+        align-items:center;
+
+        text-align:center;
+
+        gap:30px;
+
+    }
+
+
+    .footer-links{
+
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:center;
+
+        gap:12px;
+
+        width:100%;
+
+    }
+
+
+    .footer-links a{
+
+        display:block;
+
+        width:100%;
 
     }
 
