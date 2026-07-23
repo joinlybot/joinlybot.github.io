@@ -1785,9 +1785,9 @@ code{
         width:100%;
 
     }
-/* ==============================
+/* =====================================
    UPDATES FILTER DROPDOWN
-============================== */
+===================================== */
 
 
 .update-filter-dropdown{
@@ -1797,13 +1797,14 @@ code{
 }
 
 
+
 .update-filter-btn{
 
     background:#161d28;
 
     color:white;
 
-    border:1px solid var(--border);
+    border:1px solid rgba(255,255,255,.08);
 
     border-radius:14px;
 
@@ -1825,9 +1826,20 @@ code{
 
     justify-content:space-between;
 
-    gap:15px;
+    gap:18px;
+
+    transition:.25s;
 
 }
+
+
+
+.update-filter-btn:hover{
+
+    background:#202a3b;
+
+}
+
 
 
 .update-filter-btn svg{
@@ -1837,11 +1849,16 @@ code{
 }
 
 
-.update-filter-dropdown.active .update-filter-btn svg{
+
+.update-filter-dropdown.active 
+.update-filter-btn svg{
 
     transform:rotate(180deg);
 
 }
+
+
+
 
 
 .update-filter-menu{
@@ -1871,26 +1888,34 @@ code{
 }
 
 
-.update-filter-dropdown.active .update-filter-menu{
+
+.update-filter-dropdown.active 
+.update-filter-menu{
 
     display:block;
 
 }
+
+
+
 
 
 .update-filter-menu a{
 
     display:block;
 
-    padding:14px;
-
-    border-radius:14px;
-
     text-decoration:none;
 
     color:white;
 
+    padding:14px;
+
+    border-radius:14px;
+
+    transition:.2s;
+
 }
+
 
 
 .update-filter-menu a:hover{
@@ -1900,11 +1925,15 @@ code{
 }
 
 
+
 .update-filter-menu h4{
 
     font-size:15px;
 
+    margin:0;
+
 }
+
 
 
 .update-filter-menu p{
@@ -1914,5 +1943,31 @@ code{
     font-size:13px;
 
     margin-top:3px;
+
+}
+
+
+
+
+
+@media(max-width:600px){
+
+
+    .update-filter-menu{
+
+        left:0;
+
+        right:auto;
+
+        width:240px;
+
+    }
+
+
+    .update-filter-btn{
+
+        min-width:160px;
+
+    }
 
 }
