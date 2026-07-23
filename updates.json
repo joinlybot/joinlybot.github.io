@@ -1,5 +1,24 @@
 [
     {
+        "title": "Status Page",
+        "date": "July 23, 2026",
+        "type": "Announcement",
+        "content": [
+            "<strong>Joinly now has a live status page!</strong>",
+            "",
+            "<strong>Here you can monitor Joinly&#39;s systems and services such as</strong>",
+            "",
+            "Bot API",
+            "Dashboard",
+            "Commands",
+            "Database",
+            "Website",
+            "Discord Gateway",
+            "",
+            "<strong>To view our live status page, click <a target=\"_blank\" rel=\"noopener noreferrer\" href=\"https://joinlybot.github.io/status\">here</a>.</strong>"
+        ]
+    },
+    {
         "title": "Joinly Community Launch",
         "date": "July 23, 2026",
         "type": "Announcement",
