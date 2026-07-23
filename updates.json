@@ -1,5 +1,13 @@
 [
     {
+        "title": "Example",
+        "date": "July 23, 2026",
+        "type": "Major Update",
+        "content": [
+            "Hello!"
+        ]
+    },
+    {
         "title": "Privacy & Legal Updates",
         "date": "July 23, 2026",
         "type": "Notice",
