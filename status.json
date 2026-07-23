@@ -17,8 +17,8 @@
         },
         {
             "name": "Database",
-            "status": "Maintenance",
-            "state": "maintenance"
+            "status": "Operational",
+            "state": "operational"
         },
         {
             "name": "Website",
